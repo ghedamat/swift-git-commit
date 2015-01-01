@@ -52,10 +52,10 @@ func readTicket() -> Int? {
 
 func commit(msg: String) {
     if let ticketId = readTicket() {
-        let m = "'\(msg) [#\(ticketId)]'"
-        let cmd = "-m \(m)"
-        println("commiting with message \(m)")
-        gitExec(["commit", msg])
+        let m = "\(msg) [#\(ticketId)]"
+        let cmd = "-m\(m)"
+        println("commiting with message: \(m)")
+        gitExec(["commit", cmd])
     } else {
         println("invalid ticket in config file")
     }
